@@ -591,7 +591,7 @@ end
 function Addmp3(msg,chat,kkl,ffrr)
 local eer = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..kkl)) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..eer.result.file_path,ffrr) 
-sendAudio(msg.chat_id_,msg.id_,'./'..ffrr,"@VVVZVV")  
+sendAudio(msg.chat_id_,msg.id_,'./'..ffrr,"@CARLOS")  
 os.execute('rm -rf ./'..ffrr) 
 end
 function Addsticker(msg,chat,Sd,rre)
@@ -2421,7 +2421,7 @@ send(msg.chat_id_, msg.id_, '* ✧︙تم تعطيل الاسماء المكتو
 database:set(bot_id.."block:name:stats"..msg.chat_id_,"close")
 end
 if not Manager(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
-function VVVZVV_name(t1,t2)
+function CARLOS_name(t1,t2)
 if t2.id_ then 
 name_CARLOS = ((t2.first_name_ or "") .. (t2.last_name_ or ""))
 if name_CARLOS then 
@@ -2436,7 +2436,7 @@ end
 end
 end
 end
-bnnaGet(msg.sender_user_id_, VVVZVV_name)
+bnnaGet(msg.sender_user_id_, CARLOS_name)
 end
 if database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open" then
 if text and text:match("^وضع توحيد (.*)$") and Manager(msg) and database:get(bot_id.."kt:twh:stats"..msg.chat_id_) == "open" then
@@ -3750,11 +3750,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == "تاك للمشرفين" and SudoBotCoSu then
-if database:get(bot_id.."VVVZVV:admin:Time"..msg.chat_id_) then 
+if database:get(bot_id.."CARLOS:admin:Time"..msg.chat_id_) then 
 return
 send(msg.chat_id_, msg.id_,"انتظر دقيقه من فضلك")
 end
-database:setex(bot_id..'VVVZVV:admin:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
+database:setex(bot_id..'CARLOS:admin:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100 },function(extra,result,success)
 m = 0
 tgad = 0
@@ -7674,7 +7674,7 @@ end
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text and text:match('^تنظيف (%d+)$') and Manager(msg) and GetChannelMember(msg) then   
-if not database:get(bot_id..'VVVZVV:Delete:Time'..msg.chat_id_..':'..msg.sender_user_id_) then   
+if not database:get(bot_id..'CARLOS:Delete:Time'..msg.chat_id_..':'..msg.sender_user_id_) then   
 local num = tonumber(text:match('^تنظيف (%d+)$')) 
 if num > 1000 then 
 send(msg.chat_id_, msg.id_,'* ✧︙تستطيع التنظيف 1000 رساله كحد اقصى*') 
@@ -7686,7 +7686,7 @@ DeleteMessage(msg.chat_id_, {[0] = msgm})
 msgm = msgm - 1048576
 end
 send(msg.chat_id_,msg.id_,'* ✧︙تم حذف {'..num..'}*')  
-database:setex(bot_id..'VVVZVV:Delete:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
+database:setex(bot_id..'CARLOS:Delete:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
 end
 end
 if text == "تنظيف الميديا" and BasicConstructor(msg) then
@@ -9589,7 +9589,7 @@ _key = {
 {{text="🔵 Color Game 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
 {{text="🚀 Rocket Game 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 Arrow Game 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
 {{text = '𝑇𝐸𝐿𝐴𝑁𝐷 𝑇𝐸𝐴𝑀', url="t.me/CARLOSTEAM"}},
-{{text = 'مطور السورس', url="t.me/VVVZVV"}},
+{{text = 'مطور السورس', url="t.me/CARLOS"}},
 }
 send_inlin_key(msg.chat_id_," * ✧︙قائمه الالعاب الاحترافيه اضغط للعب*",_key,msg.id_)
 else
