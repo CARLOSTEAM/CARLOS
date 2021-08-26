@@ -2613,7 +2613,7 @@ end
 end,nil)   
 end
 if text == 'السورس' or text == 'سورس' or text == 'ياسورس' or text == 'يا سورس' then  
-Text = "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ CARLOSTEAM\n\n[❏  CARLOSTEAM](http://t.me/CARLOSTEAMM)\n\n[❏   ɪɴғᴏ sᴏᴜʀᴄᴇ](http://t.me/CARLOSTEAMM)\n\n[❏ 𝙲𝙰𝚁𝙻𝙾𝚂 𝙾𝙿𝙴𝚁 (http://t.me/D9l9l)\n\n[❏   𝙱𝙾𝚃 𝙲𝙰𝚁𝙻𝙾𝚂](http://t.me/D9l9l)"
+Text = "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ CARLOSTEAM\n\n[❏  CARLOSTEAM](http://t.me/CARLOSTEAMM)\n\n[❏ɪɴғᴏ sᴏᴜʀᴄᴇ](http://t.me/CARLOSTEAMM)\n\n[❏𝙲𝙰𝚁𝙻𝙾𝚂 𝙾𝙿𝙴𝚁 (http://t.me/D9l9l)\n\n[❏𝙱𝙾𝚃 𝙲𝙰𝚁𝙻𝙾𝚂](http://t.me/D9l9l)"
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '❏  CARLOSTEAM',url="t.me/CARLOSTEAMM"}},
