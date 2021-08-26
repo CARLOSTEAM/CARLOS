@@ -976,19 +976,19 @@ end,nil)
 end,nil)
 end,nil)
 end 
-if text == 'تفعيل النسخه التلقائيه ❏ ' and SudoBot(msg) then  
+if text == 'تفعيل النسخه التلقائيه ❏' and SudoBot(msg) then  
 send(msg.chat_id_, msg.id_,"*❏ : تم تفعيل النسخه الاحتياطيه التلقائيه*") 
 database:del(bot_id.."AutoFile")
 end
-if text == 'تعطيل النسخه التلقائيه ❏ ' and SudoBot(msg) then  
+if text == 'تعطيل النسخه التلقائيه ❏' and SudoBot(msg) then  
 send(msg.chat_id_, msg.id_,"*❏ : تم تعطيل النسخه الاحتياطيه التلقائيه*") 
 database:set(bot_id.."AutoFile",true) 
 end
-if text == 'مسح الثانويين ❏ ' and SudoBot(msg) then  
+if text == 'مسح الثانويين ❏' and SudoBot(msg) then  
 database:del(bot_id.."DEV:Sudo:T")
 send(msg.chat_id_, msg.id_, "\n*❏ : تم مسح قائمة المطورين الثانويين* ")
 end
-if text == 'الثانويين ❏ ' and SudoBot(msg) then
+if text == 'الثانويين ❏' and SudoBot(msg) then
 local list = database:smembers(bot_id.."DEV:Sudo:T")
 t = "\n*❏ : قائمة مطورين الثانويين للبوت* \n 𓍹======𝘾𝘼𝙍𝙇𝙊𝙎======𓍻 \n"
 for k,v in pairs(list) do
@@ -1004,7 +1004,7 @@ t = "*❏ : لا يوجد مطورين ثانويين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == 'تفعيل التواصل ❏ ' and DevCARLOSW(msg) then  
+if text == 'تفعيل التواصل ❏' and DevCARLOSW(msg) then  
 if database:get(bot_id..'Tuasl:Bots') then
 database:del(bot_id..'Tuasl:Bots') 
 Text = '\n *❏ : تم تفعيل التواصل* ' 
@@ -1013,7 +1013,7 @@ Text = '\n *❏ : بالتاكيد تم تفعيل التواصل* '
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل التواصل ❏ ' and DevCARLOSW(msg) then  
+if text == 'تعطيل التواصل ❏' and DevCARLOSW(msg) then  
 if not database:get(bot_id..'Tuasl:Bots') then
 database:set(bot_id..'Tuasl:Bots',true) 
 Text = '\n *❏ : تم تعطيل التواصل*' 
@@ -1022,7 +1022,7 @@ Text = '\n *❏ : بالتاكيد تم تعطيل التواصل*'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل البوت الخدمي ❏ ' and DevCARLOSW(msg) then  
+if text == 'تفعيل البوت الخدمي ❏' and DevCARLOSW(msg) then  
 if database:get(bot_id..'Free:Bots') then
 database:del(bot_id..'Free:Bots') 
 Text = '\n *❏ : تم تفعيل البوت الخدمي* ' 
@@ -1031,7 +1031,7 @@ Text = '\n *❏ : بالتاكيد تم تفعيل البوت الخدمي* '
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل البوت الخدمي ❏ ' and DevCARLOSW(msg) then  
+if text == 'تعطيل البوت الخدمي ❏' and DevCARLOSW(msg) then  
 if not database:get(bot_id..'Free:Bots') then
 database:set(bot_id..'Free:Bots',true) 
 Text = '\n *❏ : تم تعطيل البوت الخدمي*' 
@@ -1041,7 +1041,7 @@ end
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text and database:get(bot_id..'Start:Bots') then
-if text == 'الغاء' or text == 'الغاء ❏ ' then   
+if text == 'الغاء' or text == 'الغاء ❏' then   
 send(msg.chat_id_, msg.id_,' *❏ : الغاء حفظ كليشه ستارت*')
 database:del(bot_id..'Start:Bots') 
 return false
@@ -1051,16 +1051,16 @@ send(msg.chat_id_, msg.id_,' *❏ : تم حفظ كليشه ستارت*')
 database:del(bot_id..'Start:Bots') 
 return false
 end
-if text == 'ضع كليشه ستارت ❏ ' and DevCARLOSW(msg) then 
+if text == 'ضع كليشه ستارت ❏' and DevCARLOSW(msg) then 
 database:set(bot_id..'Start:Bots',true) 
 send(msg.chat_id_, msg.id_,' *❏ : ارسل لي الكليشه الان*')
 return false
 end
-if text == 'حذف كليشه ستارت ❏ ' and DevCARLOSW(msg) then 
+if text == 'حذف كليشه ستارت ❏' and DevCARLOSW(msg) then 
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,' *❏ : تم حذف كليشه ستارت*')
 end
-if text == 'معلومات السيرفر ❏ ' and DevCARLOSW(msg) then 
+if text == 'معلومات السيرفر ❏' and DevCARLOSW(msg) then 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
@@ -1096,54 +1096,54 @@ end
 end,nil)
 end
 end
-if text =='تغيير المطور الاساسي ❏ ' and SudoBot(msg) then
+if text =='تغيير المطور الاساسي ❏' and SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'*❏ :  ارسل ايدي المطور الاساسي الجديد*')
 database:set(bot_id..'Ed:DevBots',true) 
 end
-if text =='تغيير المطور الاساسي ❏ ' and not SudoBot(msg) then
+if text =='تغيير المطور الاساسي ❏' and not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'*❏ : لا يمكنك تغيير المطور الاساسي*')
 end
-if text == 'تحديث السورس ❏ ' and DevCARLOSW(msg) then 
+if text == 'تحديث السورس ❏' and DevCARLOSW(msg) then 
 os.execute('rm -rf CARLOS.lua')
 os.execute('wget https://raw.githubusercontent.com/CARLOSTEAM/CARLOS/master/CARLOS.lua')
 send(msg.chat_id_, msg.id_,' *❏ : تم تحديث السورس* \n*❏ : لديك اخر اصدار لسورس كارلوس*\n*❏ : الاصدار » { 2.8v}*')
 dofile('CARLOS.lua')  
 end
-if text == 'الاصدار ❏ ' and DevCARLOSW(msg) then 
+if text == 'الاصدار ❏' and DevCARLOSW(msg) then 
 database:del(bot_id..'Srt:Bot') 
 send(msg.chat_id_, msg.id_,' *❏ : اصدار سورس كارلوس* \n*❏ : الاصدار »{ 2.8v}*')
 end
-if text == 'قناه تحديثات البوت ❏ ' and DevCARLOSW(msg) then 
+if text == 'قناه تحديثات البوت ❏' and DevCARLOSW(msg) then 
 database:del(bot_id..'Srt:Bot') 
 send(msg.chat_id_, msg.id_,' ❏ : [تحديثات البوت](t.me/GXKXG) \n❏ : [قناه السورس](t.me/CARLOSTEAM)')
 end
-if text == "ضع اسم للبوت ❏ " and DevCARLOSW(msg) then  
+if text == "ضع اسم للبوت ❏" and DevCARLOSW(msg) then  
 database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
 send(msg.chat_id_, msg.id_," *❏ : ارسل اليه الاسم الان* ")
 return false
 end
-if text == 'الاحصائيات ❏ ' and DevCARLOSW(msg) then 
+if text == 'الاحصائيات ❏' and DevCARLOSW(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
 Text = ' الاحصائيات ❏  \n'..' *❏ : عدد الكروبات » {'..Groups..'}'..'*\n *❏ : عدد المشتركين » {'..Users..'}*'
 send(msg.chat_id_, msg.id_,Text) 
 return false
 end
-if text == 'المشتركين ❏ ' and DevCARLOSW(msg) then 
+if text == 'المشتركين ❏' and DevCARLOSW(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
 Text = '\n *❏ : المشتركين» {`'..Users..'`}*'
 send(msg.chat_id_, msg.id_,Text) 
 return false
 end
-if text == 'الكروبات ❏ ' and DevCARLOSW(msg) then 
+if text == 'الكروبات ❏' and DevCARLOSW(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
 Text = '\n *❏ : الكروبات» {`'..Groups..'`}*'
 send(msg.chat_id_, msg.id_,Text) 
 return false
 end
-if text == ("المطورين ❏ ") and DevCARLOSW(msg) then
+if text == ("المطورين ❏") and DevCARLOSW(msg) then
 local list = database:smembers(bot_id..'Sudo:User')
 t = "\n *❏ : قائمة المطورين* \n𓍹======𝘾𝘼𝙍𝙇𝙊𝙎======𓍻\n"
 for k,v in pairs(list) do
@@ -1159,7 +1159,7 @@ t = " *❏ : لا يوجد مطورين*"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("قائمه العام ❏ ") and DevCARLOSW(msg) then
+if text == ("قائمه العام ❏") and DevCARLOSW(msg) then
 local list = database:smembers(bot_id..'GBan:User')
 t = "\n *❏ : قائمه المحظورين عام* \n𓍹======𝘾𝘼𝙍𝙇𝙊𝙎======𓍻\n"
 for k,v in pairs(list) do
@@ -1176,7 +1176,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("قائمه الكتم العام ❏ ") and DevCARLOSW(msg) then
+if text == ("قائمه الكتم العام ❏") and DevCARLOSW(msg) then
 local list = database:smembers(bot_id..'Gmute:User')
 t = "\n *❏ : قائمة المكتومين عام* \n𓍹======𝘾𝘼𝙍𝙇𝙊𝙎======𓍻\n"
 for k,v in pairs(list) do
@@ -1193,35 +1193,35 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text=="اذاعه خاص ❏ " and msg.reply_to_message_id_ == 0 and DevCARLOSW(msg) then 
+if text=="اذاعه خاص ❏" and msg.reply_to_message_id_ == 0 and DevCARLOSW(msg) then 
 database:setex(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," *❏ : ارسل الان اذاعتك؟* \n*❏ : للخروج ارسل الغاء* ")
 return false
 end 
-if text=="اذاعه ❏ " and msg.reply_to_message_id_ == 0 and DevCARLOSW(msg) then 
+if text=="اذاعه ❏" and msg.reply_to_message_id_ == 0 and DevCARLOSW(msg) then 
 database:setex(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," *❏ : ارسل الان اذاعتك؟* \n*❏ : للخروج ارسل الغاء* ")
 return false
 end  
-if text=="اذاعه بالتثبيت ❏ " and msg.reply_to_message_id_ == 0 and DevCARLOSW(msg) then 
+if text=="اذاعه بالتثبيت ❏" and msg.reply_to_message_id_ == 0 and DevCARLOSW(msg) then 
 database:setex(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," *❏ : ارسل الان اذاعتك؟* \n*❏ : للخروج ارسل الغاء* ")
 return false
 end 
-if text=="اذاعه بالتوجيه ❏ " and msg.reply_to_message_id_ == 0  and DevCARLOSW(msg) then 
+if text=="اذاعه بالتوجيه ❏" and msg.reply_to_message_id_ == 0  and DevCARLOSW(msg) then 
 database:setex(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," *❏ : ارسل لي التوجيه الان*")
 return false
 end 
-if text=="اذاعه بالتوجيه خاص ❏ " and msg.reply_to_message_id_ == 0  and DevCARLOSW(msg) then 
+if text=="اذاعه بالتوجيه خاص ❏" and msg.reply_to_message_id_ == 0  and DevCARLOSW(msg) then 
 database:setex(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ❏ : ارسل لي التوجيه الان")
 return false
 end 
-if text == 'جلب نسخه الاحتياطيه ❏ ' and DevCARLOSW(msg) then 
+if text == 'جلب نسخه الاحتياطيه ❏' and DevCARLOSW(msg) then 
 GetFile_Bot(msg)
 end
-if text == "تنظيف المشتركين ❏ " and DevCARLOSW(msg) then
+if text == "تنظيف المشتركين ❏" and DevCARLOSW(msg) then
 local pv = database:smembers(bot_id.."User_Bot")
 local sendok = 0
 for i = 1, #pv do
@@ -1247,7 +1247,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات ❏ " and DevCARLOSW(msg) then 
+if text == "تنظيف الكروبات ❏" and DevCARLOSW(msg) then 
 local group = database:smembers(bot_id..'Chek:Groups') 
 local w =0
 local q =0
@@ -1373,7 +1373,7 @@ end,nil)
 end
 end
 if database:get(bot_id..'Set:Name:Bot'..msg.sender_user_id_) then 
-if text == 'الغاء' or text == 'الغاء ❏ ' then   
+if text == 'الغاء' or text == 'الغاء ❏' then   
 send(msg.chat_id_, msg.id_," *❏ : تم الغاء حفظ اسم البوت*")
 database:del(bot_id..'Set:Name:Bot'..msg.sender_user_id_) 
 return false  
@@ -1384,7 +1384,7 @@ send(msg.chat_id_, msg.id_, " *❏ : تم حفظ الاسم*")
 return false
 end 
 if database:get(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == 'الغاء' or text == 'الغاء ❏ ' then   
+if text == 'الغاء' or text == 'الغاء ❏' then   
 send(msg.chat_id_, msg.id_," *❏ : تم الغاء الاذاعه للخاص*")
 database:del(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
@@ -1417,7 +1417,7 @@ database:del(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 
 if database:get(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == 'الغاء' or text == 'الغاء ❏ ' then   
+if text == 'الغاء' or text == 'الغاء ❏' then   
 send(msg.chat_id_, msg.id_," *❏ : تم الغاء الاذاعه*")
 database:del(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
@@ -1450,7 +1450,7 @@ database:del(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_i
 end
 
 if database:get(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == 'الغاء' or text == 'الغاء ❏ ' then   
+if text == 'الغاء' or text == 'الغاء ❏' then   
 send(msg.chat_id_, msg.id_," *❏ : تم الغاء الاذاعه*")
 database:del(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  
@@ -1470,7 +1470,7 @@ database:del(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_
 end 
 end
 if database:get(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
-if text == 'الغاء' or text == 'الغاء ❏ ' then   
+if text == 'الغاء' or text == 'الغاء ❏' then   
 send(msg.chat_id_, msg.id_," *❏ : تم الغاء الاذاعه*")
 database:del(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  
