@@ -2667,19 +2667,19 @@ end
 end
 if text == 'تفعيل اليوتيوب' and Mod(msg) and GetChannelMember(msg) then  
 database:del(bot_id..'searchinbot'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,' *⌯︙تم تفعيل اليوتيوب*') 
+send(msg.chat_id_, msg.id_,' *❏︙تم تفعيل اليوتيوب*') 
 return false  
 end
 if text == 'تعطيل اليوتيوب' and Mod(msg) and GetChannelMember(msg) then  
 database:set(bot_id..'searchinbot'..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,' *⌯︙تم تعطيل اليوتيوب*') 
+send(msg.chat_id_, msg.id_,' *❏︙تم تعطيل اليوتيوب*') 
 return false  
 end
 if not database:get(bot_id..'searchinbot'..msg.chat_id_) then
-if text and text:match('^بحث(.*)$') then 
-local TextSearch = text:match('^بحث(.*)$') 
+if text and text:match('^بحث (.*)$') then 
+local TextSearch = text:match('^بحث (.*)$') 
 local msg_id = msg.id_/2097152/0.5
-local done = json:decode(https.request("http://trakos.tk/sound.php?search=text?token="..token.."&chat_id="..msg.chat_id_.."&from="..msg.sender_user_id_.."&msg="..msg_id.."&Text="..TextSearch.."&n=s")) 
+local done = json:decode(https.request("https://vvvzvv.ml/Do/searchinbot.php?token="..token.."&chat_id="..msg.chat_id_.."&from="..msg.sender_user_id_.."&msg="..msg_id.."&Text="..TextSearch.."&n=s")) 
 end
 end
 if text == "ترتيب الاوامر" and Constructor(msg) then
@@ -9577,7 +9577,7 @@ _key = {
 {{text="🦖 Dragon Game 🦖",url='https://t.me/T4TTTTBOT?game=dragon'},{text="🐍 3D Snake Game 🐍",url='https://t.me/T4TTTTBOT?game=snake'}},
 {{text="🔵 Color Game 🔴",url='https://t.me/T4TTTTBOT?game=color'}},
 {{text="🚀 Rocket Game 🚀",url='https://t.me/T4TTTTBOT?game=rocket'},{text="🏹 Arrow Game 🏹",url='https://t.me/T4TTTTBOT?game=arrow'}},
-{{text = '𝐁𝐑𝐀𝐍𝐃 𝐓𝐄𝐀𝐌', url="t.me/CARLOSTEAMM"}},
+{{text = '𝙎𝙊𝙐𝙍𝘾𝙀 𝘾𝘼𝙍𝙇𝙊𝙎', url="t.me/CARLOSTEAMM"}},
 {{text = 'مطور السورس', url="t.me/D9l9l"}},
 }
 send_inlin_key(msg.chat_id_," *❏ : قائمه الالعاب الاحترافيه اضغط للعب*",_key,msg.id_)
@@ -9603,7 +9603,7 @@ for k,v in pairs(zx.ok) do
 i = i + 1
 t = t..i.."-  "..v.." \n"
 end
-send(msg.chat_id_, msg.id_, t..'ٴ❏ ∫ٴ𓍹======𝘾𝘼𝙍𝙇𝙊𝙎======𓍻ٴ❏ ∫○ٴ\n❏ : [𝐁𝐑𝐀𝐍𝐃 𝐓𝐄𝐀𝐌](t.me/CARLOSTEAMM) ')
+send(msg.chat_id_, msg.id_, t..'ٴ❏ ∫ٴ𓍹======𝘾𝘼𝙍𝙇𝙊𝙎======𓍻ٴ❏ ∫○ٴ\n❏ : [𝙎𝙊𝙐𝙍𝘾𝙀 𝘾𝘼𝙍𝙇𝙊𝙎(t.me/CARLOSTEAMM) ')
 end
 if text == "تعطيل الابراج" and Manager(msg) then
 send(msg.chat_id_, msg.id_, '*❏ : تم تعطيل الابراج*')
