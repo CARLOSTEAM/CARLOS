@@ -2688,7 +2688,7 @@ local Ttext = text:match('^بحث (.*)$')
 local msgin = msg.id_/2097152/0.5 
 http.request('http://devstorm.ml/tshake/tahaj200.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin)
 end
-end
+
 if text == "ترتيب الاوامر" and Constructor(msg) then
  database:set(bot_id.."Set:Cmd:Group:New1"..msg.chat_id_..":ا","ايدي")
  database:sadd(bot_id.."List:Cmd:Group:New"..msg.chat_id_,"ا")
