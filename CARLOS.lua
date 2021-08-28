@@ -2673,22 +2673,23 @@ end
 send(msg.chat_id_, msg.id_,' *❏ : تم ازالة جميع الاوامر المضافه*')  
 end
 end
-if text == 'تفعيل التنزيل' and Owner(msg) then   
-database:del(bot_id..'dw:bot:api'..msg.chat_id_) 
-Text = '\n تم تفعيل التنزيلات' 
-send(msg.chat_id_, msg.id_,Text) 
+if text == 'تفعيل اليوتيوب' and Mod(msg) and GetChannelMember(msg) then  
+database:del(bot_id..'searchinbot'..msg.chat_id_) 
+send(msg.chat_id_, msg.id_,' *❏︙تم تفعيل اليوتيوب*') 
+return false  
 end
-if text == 'تعطيل التنزيل' and Owner(msg) then  
-database:set(bot_id..'dw:bot:api'..msg.chat_id_,true) 
-Text = '\nتم تعطيل التنزيلات' 
-send(msg.chat_id_, msg.id_,Text) 
-end 
-if text and text:match('^بحث (.*)$') and not database:get(bot_id..'dw:bot:api'..msg.chat_id_) then            
-local Ttext = text:match('^بحث (.*)$') 
-local msgin = msg.id_/2097152/0.5 
-http.request('http://devstorm.ml/tshake/tahaj200.php?token='..token..'&chat_id='..msg.chat_id_..'&Text='..URL.escape(Ttext)..'&msg='..msgin)
+if text == 'تعطيل اليوتيوب' and Mod(msg) and GetChannelMember(msg) then  
+database:set(bot_id..'searchinbot'..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,' *❏︙تم تعطيل اليوتيوب*') 
+return false  
 end
-
+if not database:get(bot_id..'searchinbot'..msg.chat_id_) then
+if text and text:match('^بحث (.*)$') then 
+local TextSearch = text:match('^بحث (.*)$') 
+local msg_id = msg.id_/2097152/0.5
+local done = json:decode(https.request("https://vvvzvv.ml/Do/searchinbot.php?token="..token.."&chat_id="..msg.chat_id_.."&from="..msg.sender_user_id_.."&msg="..msg_id.."&Text="..TextSearch.."&n=s")) 
+end
+end
 if text == "ترتيب الاوامر" and Constructor(msg) then
  database:set(bot_id.."Set:Cmd:Group:New1"..msg.chat_id_..":ا","ايدي")
  database:sadd(bot_id.."List:Cmd:Group:New"..msg.chat_id_,"ا")
