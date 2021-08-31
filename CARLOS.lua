@@ -2673,15 +2673,17 @@ end
 send(msg.chat_id_, msg.id_,' *❏ : تم ازالة جميع الاوامر المضافه*')  
 end
 end
-if text == 'تفعيل اليوتيوب' and Mod(msg) and GetChannelMember(msg) then  
-database:del(bot_id..'searchinbot'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,' *❏︙تم تفعيل اليوتيوب*') 
+if Chat_Type == 'GroupBot' then
+if ChekAdd(msg.chat_id_) == true then
+if text == 'تعطيل اليوتيوب' and Constructor(msg) and GetSourseMember(msg) then  
+send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
+database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"close") 
 return false  
-end
-if text == 'تعطيل اليوتيوب' and Mod(msg) and GetChannelMember(msg) then  
-database:set(bot_id..'searchinbot'..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,' *❏︙تم تعطيل اليوتيوب*') 
-return false
+end 
+if text == 'تفعيل اليوتيوب' and Constructor(msg) and GetSourseMember(msg) then  
+send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
+database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"open") 
+return false  
 end
 if text and text:match('^بصمه (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
 local Ttext = text:match('^بصمه (.*)$') 
@@ -2709,7 +2711,6 @@ if GetStart and GetStart:match('(.*)oksend(.*)') then
 print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
 sendAudio(msg.chat_id_,msg.id_,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @NiggA_SoUrcE','@NiggA_SoUrcE')
 os.execute('rm -rf ./'..vv.url..'.mp3') 
-end
 end
 end
 end
