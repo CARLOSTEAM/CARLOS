@@ -8348,6 +8348,16 @@ tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bo
 send(msg.chat_id_, msg.id_,'*❏ : تم مغادرة المجموعه*') 
 database:srem(bot_id..'Chek:Groups',msg.chat_id_)  
 end
+if text and text:match("^غادر (-%d+)$") then
+local GP_ID = {string.match(text, "^(غادر) (-%d+)$")}
+if DevBot(msg) and not database:get(bot_id.."Left:Bot"..msg.chat_id_) then 
+tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=GP_ID[2],user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
+send(msg.chat_id_, msg.id_,"•  تم مغادرة المجموعه") 
+send(GP_ID[2], 0,"•  تم مغادرة المجموعه بامر من مطور البوت") 
+database:srem(bot_id.."Chek:Groups",GP_ID[2])  
+return false 
+end
+end
 return false  
 end
 if text == 'بوت' then
