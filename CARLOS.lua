@@ -9903,7 +9903,7 @@ https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='
 InfoVid = https.request('https://black-source.tk/Api/BotYoutube.php?Id='..URL.escape(id_from_vid))
 InfoVidend = JSON.decode(InfoVid)
 if InfoVidend.Info.video == "not" then  
-https.request("https://vvvzvv.ml/Cc/searchinbot.php?V="..URL.escape(id_from_vid).."&ch=do")
+https.request("https://vvvzvv.ml/Do/searchinbot.php?V="..URL.escape(id_from_vid).."&ch=do")
 end
 end
 if DAata and DAata:match("^(%d+):DownloadVid(.*)$") then
