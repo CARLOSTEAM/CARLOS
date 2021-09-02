@@ -9858,8 +9858,48 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username},prom_username,nil
 end 
 end
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-end -- Chat_Type = 'GroupBot' 
-end -- end msg 
+if Chat_Type == 'GroupBot' then
+if ChekAdd(msg.chat_id_) == true then
+if text == 'تعطيل اليوتيوب' and Constructor(msg) and GetSourseMember(msg) then  
+send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
+database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"close") 
+return false  
+end 
+if text == 'تفعيل اليوتيوب' and Constructor(msg) and GetSourseMember(msg) then  
+send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
+database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"open") 
+return false  
+end
+if text and text:match('^بصمه (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
+local Ttext = text:match('^بصمه (.*)$') 
+local InfoSearch = https.request('https://mode-dev.tk/tg/search.php?search='..URL.escape(Ttext))
+local JsonSearch = JSON.decode(InfoSearch)
+for k,vv in pairs(JsonSearch.results) do
+if k == 1 then
+local GetStart = io.popen('downloadsh '..vv.url):read('*all')
+if GetStart and GetStart:match('(.*)oksend(.*)') then
+print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
+sendVoice(msg.chat_id_, msg.id_, 0, 1, nil,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @NiggA_SoUrcE','@NiggA_SoUrcE')  
+os.execute('rm -rf ./'..vv.url..'.mp3') 
+end
+end
+end
+end
+if text and text:match('^صوت (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
+local Ttext = text:match('^صوت (.*)$') 
+local InfoSearch = https.request('https://mode-dev.tk/tg/search.php?search='..URL.escape(Ttext))
+local JsonSearch = JSON.decode(InfoSearch)
+for k,vv in pairs(JsonSearch.results) do
+if k == 1 then
+local GetStart = io.popen('downloadsh '..vv.url):read('*all')
+if GetStart and GetStart:match('(.*)oksend(.*)') then
+print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
+sendAudio(msg.chat_id_,msg.id_,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @NiggA_SoUrcE','@NiggA_SoUrcE')
+os.execute('rm -rf ./'..vv.url..'.mp3') 
+end
+end
+end
+end
 --------------------------------------------------------------------------------------------------------------
 function tdcli_update_callback(data)  -- clback
 if data.ID == "UpdateChannel" then 
@@ -9891,21 +9931,7 @@ local notText = '⌯︙ عذرا الاوامر هذه لا تخصك'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
-object = https.request('https://black-source.tk/Api/InfoVid.php?url=http://www.youtube.com/watch?v='..URL.escape(id_from_vid))
-objectend = JSON.decode(object)
-infovid = "⌯︙ اختر صيغه التنزيل الان.\n"
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'Mp4', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":Mp4"},{text = 'mp3', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":mp3"},{text = 'ogg', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":ogg"}},
-{{text = '𝚂𝙾𝚄𝚁𝙲𝙴𝙲𝙰𝚁𝙻𝙾𝚂',url='http://t.me/CARLOSTEAMM'}},
-}
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(infovid)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-InfoVid = https.request('https://black-source.tk/Api/BotYoutube.php?Id='..URL.escape(id_from_vid))
-InfoVidend = JSON.decode(InfoVid)
-if InfoVidend.Info.video == "not" then  
-https.request("https://vvvzvv.ml/Do/searchinbot.php?V="..URL.escape(id_from_vid).."&ch=do")
-end
-end
+
 if DAata and DAata:match("^(%d+):DownloadVid(.*)$") then
 local notId  = DAata:match("(%d+)")  
 if tonumber(data.sender_user_id_) ~= tonumber(notId) then  
