@@ -6996,6 +6996,8 @@ sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
 end,nil)
 end
 end
+if Chat_Type == 'GroupBot' then
+if ChekAdd(msg.chat_id_) == true then
 if text == 'تعطيل اليوتيوب' and Constructor(msg) and GetSourseMember(msg) then  
 send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
 database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"close") 
