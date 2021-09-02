@@ -2673,8 +2673,7 @@ end
 send(msg.chat_id_, msg.id_,' *❏ : تم ازالة جميع الاوامر المضافه*')  
 end
 end
-if Chat_Type == 'GroupBot' then
-if ChekAdd(msg.chat_id_) == true then
+
 if text == 'تعطيل اليوتيوب' and Mod(msg) then  
 send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
 database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"close") 
