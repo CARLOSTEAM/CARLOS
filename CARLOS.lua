@@ -2673,7 +2673,6 @@ end
 send(msg.chat_id_, msg.id_,' *❏ : تم ازالة جميع الاوامر المضافه*')  
 end
 end
-
 if text == 'تفعيل اليوتيوب' and Mod(msg) and GetChannelMember(msg) then  
 database:del(bot_id..'searchinbot'..msg.chat_id_) 
 send(msg.chat_id_, msg.id_,' *❏︙تم تفعيل اليوتيوب*') 
@@ -8325,7 +8324,8 @@ tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bo
 send(msg.chat_id_, msg.id_,'*❏ : تم مغادرة المجموعه*') 
 database:srem(bot_id..'Chek:Groups',msg.chat_id_)  
 end
-
+return false  
+end
 if text == 'بوت' then
 Namebot = (database:get(bot_id..'Name:Bot') or 'كارلوس')
 send(msg.chat_id_, msg.id_,'*اسمي '..Namebot..'* ')
