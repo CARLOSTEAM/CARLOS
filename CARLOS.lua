@@ -9896,14 +9896,14 @@ objectend = JSON.decode(object)
 infovid = "⌯︙ اختر صيغه التنزيل الان.\n"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'فيديو🎥', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":فيديو🎥"},{text = 'صوت🔮', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":صوت🔮"},{text = 'بصمه🔉', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":بصمه🔉"}},
+{{text = 'Mp4', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":Mp4"},{text = 'mp3', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":mp3"},{text = 'ogg', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":ogg"}},
 {{text = '𝚂𝙾𝚄𝚁𝙲𝙴𝙲𝙰𝚁𝙻𝙾𝚂',url='http://t.me/CARLOSTEAMM'}},
 }
 https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(infovid)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 InfoVid = https.request('https://black-source.tk/Api/BotYoutube.php?Id='..URL.escape(id_from_vid))
 InfoVidend = JSON.decode(InfoVid)
 if InfoVidend.Info.video == "not" then  
-https.request("https://vvvzvv.ml/Ali/searchinbot.php?V="..URL.escape(id_from_vid).."&ch=do")
+https.request("https://vvvzvv.ml/Do/searchinbot.php?V="..URL.escape(id_from_vid).."&ch=do")
 end
 end
 if DAata and DAata:match("^(%d+):DownloadVid(.*)$") then
@@ -9914,7 +9914,7 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
-https.request("https://vvvzvv.ml/Ali/searchinbot.php?token="..token.."&chat_id="..Chat_id.."&data="..URL.escape(DAata).."&n=do")
+https.request("https://vvvzvv.ml/Do/searchinbot.php?token="..token.."&chat_id="..Chat_id.."&data="..URL.escape(DAata).."&n=do")
 end
 Ok_id  = DAata:match("(%d+)")  
 if DAata == 'okCaptcha'..data.sender_user_id_ then  
