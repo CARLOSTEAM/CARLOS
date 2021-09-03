@@ -9896,7 +9896,7 @@ objectend = JSON.decode(object)
 infovid = "⌯︙ اختر صيغه التنزيل الان.\n"
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'مقطع فيديو🎥', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":مقطع فيديو🎥"},{text = 'ملف صوتي', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":ملف صوتي🔮"},{text = 'بصمه صوتيه🔉', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":بصمه صوتيه🔉"}},
+{{text = 'فيديو🎥', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":فيديو🎥"},{text = 'صوت🔮', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":صوت🔮"},{text = 'بصمه🔉', callback_data=id_from_user..":DownloadVid:"..msgidrp..":"..id_from_vid..":بصمه🔉"}},
 {{text = '𝚂𝙾𝚄𝚁𝙲𝙴𝙲𝙰𝚁𝙻𝙾𝚂',url='http://t.me/CARLOSTEAMM'}},
 }
 https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(infovid)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
