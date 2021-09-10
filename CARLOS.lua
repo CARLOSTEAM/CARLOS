@@ -2683,11 +2683,51 @@ database:set(bot_id..'searchinbot'..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_,' *❏︙تم تعطيل اليوتيوب*') 
 return false  
 end
-if not database:get(bot_id..'searchinbot'..msg.chat_id_) then
-if text and text:match('^بحث (.*)$') then 
-local TextSearch = text:match('^بحث (.*)$') 
-local msg_id = msg.id_/2097152/0.5
-local done = json:decode(https.request("https://faeder.net/YoutubeApi/FaederApi.php?token="..token.."&chat_id="..msg.chat_id_.."&from="..msg.sender_user_id_.."&msg="..msg_id.."&Text="..TextSearch.."&n=s")) 
+if Text and Text:match('idu@(%d+)msg@(%d+)@id@(.*)') then
+local listYt = {Text:match('idu@(%d+)msg@(%d+)@id@(.*)')}
+if tonumber(listYt[1]) == tonumber(data.sender_user_id_) then
+Msg_idi = Msg_id/2097152/0.5
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = ' { Ogg - بصمه }', callback_data = 'oggidu@'..data.sender_user_id_..'idv@'..listYt[3]}, 
+},
+{
+{text = ' { Mp3 - ملف صوتي }', callback_data = 'mp3idu@'..data.sender_user_id_..'idv@'..listYt[3]},  {text = ' { Mp4 - فيديو }', callback_data = 'mp4idu@'..data.sender_user_id_..'idv@'..listYt[3]}, 
+},
+{
+{text = '{ الغاء الامر }', callback_data = 'idu@'..data.sender_user_id_..'delamr'},
+},
+}
+local textyt = '*✟︙عليك اختيار احدى الصيغ للتنزبل *'
+return https.request('https://api.telegram.org/bot'..tokenbot..'/editMessageText?chat_id='..data.chat_id_..'&text='..URL.escape(textyt)..'&message_id='..Msg_idi..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+end
+if Text and Text:match('oggidu@(%d+)idv@(.*)') then
+local listYt = {Text:match('oggidu@(%d+)idv@(.*)')}
+if tonumber(listYt[1]) == tonumber(data.sender_user_id_) then
+delete_msg(data.chat_id_, {[0] = Msg_id})  
+io.popen('curl -s "https://faeder.net/YoutubeApi/yt2.php?url='..listYt[2]..'&token='..tokenbot..'&chat='..Chat_id..'&type=ogg&msg=0"')
+end
+end
+if Text and Text:match('mp3idu@(%d+)idv@(.*)') then
+local listYt = {Text:match('mp3idu@(%d+)idv@(.*)')}
+if tonumber(listYt[1]) == tonumber(data.sender_user_id_) then
+delete_msg(data.chat_id_, {[0] = Msg_id})  
+io.popen('curl -s "https://faeder.net/YoutubeApi/yt2.php?url='..listYt[2]..'&token='..tokenbot..'&chat='..Chat_id..'&type=mp3&msg=0"')
+end
+end
+if Text and Text:match('mp4idu@(%d+)idv@(.*)') then
+local listYt = {Text:match('mp4idu@(%d+)idv@(.*)')}
+if tonumber(listYt[1]) == tonumber(data.sender_user_id_) then
+delete_msg(data.chat_id_, {[0] = Msg_id})  
+io.popen('curl -s "https://faeder.net/YoutubeApi/yt2.php?url='..listYt[2]..'&token='..tokenbot..'&chat='..Chat_id..'&type=mp4&msg=0"')
+end
+end
+if Text and Text:match('idu@(%d+)delamr') then
+local listYt = Text:match('idu@(%d+)delamr') 
+if tonumber(listYt) == tonumber(data.sender_user_id_) then
+delete_msg(data.chat_id_, {[0] = Msg_id})  
 end
 end
 if text == "ترتيب الاوامر" and Constructor(msg) then
