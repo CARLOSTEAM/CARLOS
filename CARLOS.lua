@@ -9772,10 +9772,10 @@ data,res = https.request('https://vvvzvv.ml/Foes/Teland.php')
 if res == 200 then
 audios = json:decode(data)
 if audios.Info == true then
-local Text ='*❏︙تم اختيار البصمه الصوتيه لك*'
+local Text ='*◈︙تم اختيار البصمه الصوتيه لك*'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '𝙎𝙊𝙐𝙍𝘾𝙀 𝘾𝘼𝙍𝙇𝙊𝙎',url="t.me/CARLOSTEAMM"}},
+{{text = '𝙎𝙤𝙪𝙧𝘾𝙚 𝙍𝙤𝙡𝙚𝙭',url="t.me/T_aLeN"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
