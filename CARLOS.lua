@@ -4347,12 +4347,12 @@ if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
 owner_id = admins[i].user_id_
 tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
 if b.first_name_ == false then
-send(msg.chat_id_, msg.id_," *حساب◈︙ المنشئ محذوف*")
+send(msg.chat_id_, msg.id_," *حساب❏︙ المنشئ محذوف*")
 return false  
 end
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = owner_id,offset_ = 0,limit_ = 1},function(arg,getpro) 
 if getpro.photos_[0] then
-Text = "*◈︙ Owner Name ↬ * ["..b.first_name_.."](T.me/"..b.username_..")\n*◈︙ Owner User ↬* [@"..b.username_.."]\n*◈︙ Owner id ↬* ["..b.id_.."]"
+Text = "*❏︙ Owner Name ↬ * ["..b.first_name_.."](T.me/"..b.username_..")\n*❏︙ Owner User ↬* [@"..b.username_.."]\n*❏︙ Owner id ↬* ["..b.id_.."]"
 keyboard = {}
 keyboard.inline_keyboard = {{{text = ''..b.first_name_..'', url = "https://t.me/"..b.username_..""}}}
 local msg_id = msg.id_/2097152/0.5
@@ -7018,7 +7018,7 @@ else
 tdcli_function ({ID = "GetUser",user_id_ = SUDO,},function(arg,result) 
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = SUDO,offset_ = 0,limit_ = 1},function(arg,getpro) 
 if getpro.photos_[0] then
-Text = "*◈︙ Dev Name ↬ * ["..result.first_name_.."](T.me/"..result.username_..")\n*◈︙ Dev User ↬* [@"..result.username_.."]\n*◈︙ Dev id ↬* ["..result.id_.."]"
+Text = "*❏︙ Dev Name ↬ * ["..result.first_name_.."](T.me/"..result.username_..")\n*❏︙ Dev User ↬* [@"..result.username_.."]\n*❏︙ Dev id ↬* ["..result.id_.."]"
 keyboard = {}
 keyboard.inline_keyboard = {{{text = ''..result.first_name_..'', url = "https://t.me/"..result.username_..""}}}
 local msg_id = msg.id_/2097152/0.5
@@ -9766,6 +9766,21 @@ for k,v in pairs(cun) do
 DeleteMessage(msg.chat_id_, {[0] = v})
 end
 send(msg.chat_id_, msg.id_,"❏ : تم مسح الميديا بنجاح")
+end
+if text == "فويس" then
+data,res = https.request('https://vvvzvv.ml/Foes/Teland.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='*❏︙تم اختيار البصمه الصوتيه لك*'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = '𝙎𝙊𝙐𝙍𝘾𝙀 𝘾𝘼𝙍𝙇𝙊𝙎',url="t.me/CARLOSTEAMM"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
 end
 if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
 data,res = https.request('https://vvvzvv.ml/amirVois/Teland.php')
