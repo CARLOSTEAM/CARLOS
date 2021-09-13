@@ -4347,15 +4347,24 @@ if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
 owner_id = admins[i].user_id_
 tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
 if b.first_name_ == false then
-send(msg.chat_id_, msg.id_," *❏ : حساب المنشئ محذوف*")
+send(msg.chat_id_, msg.id_," *حساب◈︙ المنشئ محذوف*")
 return false  
 end
-local UserName = (b.username_ or "CARLOSTEAM")
-send(msg.chat_id_, msg.id_," ❏ : منشئ الكروب » ["..b.first_name_.."](T.me/"..UserName..")")  
+tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = owner_id,offset_ = 0,limit_ = 1},function(arg,getpro) 
+if getpro.photos_[0] then
+Text = "*◈︙ Owner Name ↬ * ["..b.first_name_.."](T.me/"..b.username_..")\n*◈︙ Owner User ↬* [@"..b.username_.."]\n*◈︙ Owner id ↬* ["..b.id_.."]"
+keyboard = {}
+keyboard.inline_keyboard = {{{text = ''..b.first_name_..'', url = "https://t.me/"..b.username_..""}}}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id='..msg.chat_id_..'&caption='..URL.escape(Text)..'&photo='..getpro.photos_[0].sizes_[1].photo_.persistent_id_..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+else
+send(msg.chat_id_, msg.id_,Name,1, 'md')
+end
+end,nil)   
 end,nil)   
 end
 end
-end,nil)   
+end,nil)  
 end
 if text == "رفع منشئ" and msg.reply_to_message_id_ and BasicConstructor(msg) and GetChannelMember(msg) then  
 function start_function(extra, result, success)
